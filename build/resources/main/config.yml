@@ -1,0 +1,23 @@
+# SmootherPlayers
+#
+# Players within the enhanced radius of a viewer have their movement relayed the instant their
+# client sends it (up to 20 updates/second). Players further away use vanilla's normal
+# 2-tick updates (10/second), which saves bandwidth where the extra smoothness isn't noticeable.
+
+# Radius (blocks) around each player inside which other players move with enhanced smoothness.
+enhanced-radius: 12.0
+
+# Shrink the enhanced radius in crowded areas to keep bandwidth in check.
+dynamic-radius:
+  enabled: true
+  # Players within this many blocks of a viewer count towards the crowd.
+  crowd-radius: 24.0
+  # The radius never shrinks below this.
+  min-radius: 6.0
+  # With this many nearby players or fewer, the full enhanced-radius is used.
+  shrink-start: 5
+  # At this many nearby players the radius has shrunk all the way to min-radius.
+  shrink-end: 15
+  # With more nearby players than this, enhanced movement is turned off for that viewer
+  # entirely and everyone uses vanilla updates. Set to -1 to never turn it off.
+  player-cap: 25

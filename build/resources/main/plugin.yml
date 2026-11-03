@@ -1,0 +1,7 @@
+name: SmootherPlayers
+version: '1.0-SNAPSHOT'
+
+main: IudexIndustries.SmootherPlayers
+# Oldest supported API; newer servers (1.21.x - 26.x) load plugins declaring an older api-version.
+api-version: '1.21'
+depend: [packetevents]
